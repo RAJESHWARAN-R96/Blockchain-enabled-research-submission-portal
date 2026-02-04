@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Research Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">ResearchPortal - Student</a>
+            <button class="btn btn-outline-light btn-sm" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card p-4 mb-4">
+                    <h4>Upload Submission</h4>
+                    <form id="uploadForm">
+                        <div class="mb-3">
+                            <label class="form-label">Research Title</label>
+                            <input type="text" class="form-control" id="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Research Paper (PDF)</label>
+                            <input type="file" class="form-control" id="file" accept=".pdf" required>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Upload</button>
+                    </form>
+                    <small class="text-muted mt-2 d-block">Note: File will be hashed on upload to create a blockchain
+                        record.</small>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card p-4">
+                    <h4>My Submissions</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>File Hash (Blockchain ID)</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="submissionsTable">
+                                <!-- Data injected here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/student.js"></script>
+</body>
+
+</html>

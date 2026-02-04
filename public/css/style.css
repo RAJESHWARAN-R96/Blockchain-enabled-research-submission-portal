@@ -1,0 +1,30 @@
+body {
+    min-height: 100vh;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.mono {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    word-break: break-all;
+}
+
+.status-pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.status-approved {
+    color: green;
+    font-weight: bold;
+}
+
+.status-rejected {
+    color: red;
+    font-weight: bold;
+}
