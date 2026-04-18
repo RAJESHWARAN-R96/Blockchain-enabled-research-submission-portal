@@ -21,4 +21,8 @@ function logout() {
     window.location.href = 'login.html';
 }
 
-const API_URL = 'http://localhost:5000/api';
+// Dynamic API URL: Automatically switches between local and production
+const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:5000/api'
+    : '/api';
+
