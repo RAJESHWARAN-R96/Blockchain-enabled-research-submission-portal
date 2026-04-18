@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadSubmissions();
 });
 
-// Handle Upload
 document.getElementById('uploadForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const user = checkAuth();
@@ -38,7 +37,6 @@ document.getElementById('uploadForm').addEventListener('submit', async (e) => {
     }
 });
 
-// Load Submissions
 async function loadSubmissions() {
     const user = checkAuth();
     try {
@@ -53,7 +51,7 @@ async function loadSubmissions() {
                 <tr>
                     <td>${sub.title}</td>
                     <td class="mono" title="${sub.fileHash}">${sub.fileHash.substring(0, 10)}...</td>
-                    <td><span class="status-${sub.status}">${sub.status}</span></td>
+                    <td><span class="status-badge status-${sub.status}">${sub.status}</span></td>
                     <td>${new Date(sub.timestamp).toLocaleDateString()}</td>
                 </tr>
             `;

@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('./models/User');
 const Submission = require('./models/Submission');
+const Block = require('./models/Block'); // Added Block model
+const blockchain = require('./utils/blockchain'); // Added Blockchain utility
 require('dotenv').config();
 
 const seedDB = async () => {
@@ -11,6 +13,10 @@ const seedDB = async () => {
 
         await User.deleteMany({});
         await Submission.deleteMany({});
+        await Block.deleteMany({}); // Clear existing blocks
+
+        // Initialize Blockchain
+        await blockchain.createGenesisBlock();
 
         const salt = await bcrypt.genSalt(10);
         const adminPassword = await bcrypt.hash('admin123', salt);
@@ -23,16 +29,16 @@ const seedDB = async () => {
 
         const studentPassword = await bcrypt.hash('student123', salt);
         const student = new User({
-            name: 'John Doe',
+            name: 'pradeep',
             email: 'student@example.com',
-            password: studentPassword,
+            password: studentPassword, // Fixed ReferenceError
             role: 'student'
         });
 
         await admin.save();
         await student.save();
 
-        console.log('Database Seeded!');
+        console.log('Database Seeded with Blockchain Genesis!');
         console.log('Admin: admin@example.com / admin123');
         console.log('Student: student@example.com / student123');
 
