@@ -11,9 +11,19 @@ const Block = require('../models/Block'); // Added Block Model
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const uploadDir = path.join(__dirname, '../../uploads');
-        if (!fs.existsSync(uploadDir)) {
-            fs.mkdirSync(uploadDir);
+        let uploadDir;
+        if (process.env.VERCEL) {
+            // Vercel has a read-only filesystem, /tmp is the only writable directory
+            uploadDir = '/tmp';
+        } else {
+            uploadDir = path.join(__dirname, '../../uploads');
+            if (!fs.existsSync(uploadDir)) {
+                try {
+                    fs.mkdirSync(uploadDir, { recursive: true });
+                } catch (e) {
+                    console.error('Failed to create uploads directory:', e.message);
+                }
+            }
         }
         cb(null, uploadDir);
     },
