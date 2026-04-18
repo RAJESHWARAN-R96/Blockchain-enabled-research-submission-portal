@@ -82,7 +82,7 @@ router.post('/upload', upload.single('document'), async (req, res) => {
 
     } catch (err) {
         console.error(err);
-        res.status(500).send('Server Error');
+        res.status(500).json({ msg: err.message });
     }
 });
 
@@ -92,7 +92,7 @@ router.get('/my-submissions/:id', async (req, res) => {
         res.json(submissions);
     } catch (err) {
         console.error(err);
-        res.status(500).send('Server Error');
+        res.status(500).json({ msg: err.message });
     }
 });
 
@@ -102,7 +102,7 @@ router.get('/all', async (req, res) => {
         res.json(submissions);
     } catch (err) {
         console.error(err);
-        res.status(500).send('Server Error');
+        res.status(500).json({ msg: err.message });
     }
 });
 
@@ -119,7 +119,7 @@ router.post('/action', async (req, res) => {
         res.json({ msg: `Submission ${status}`, submission });
     } catch (err) {
         console.error(err);
-        res.status(500).send('Server Error');
+        res.status(500).json({ msg: err.message });
     }
 });
 
@@ -188,7 +188,7 @@ router.get('/stats', async (req, res) => {
         });
     } catch (err) {
         console.error(err);
-        res.status(500).send('Server Error');
+        res.status(500).json({ msg: err.message });
     }
 });
 
@@ -251,7 +251,7 @@ router.post('/verify', async (req, res) => {
 
     } catch (err) {
         console.error(err);
-        res.status(500).send('Server Error');
+        res.status(500).json({ msg: err.message });
     }
 });
 

@@ -27,7 +27,7 @@ router.post('/register', async (req, res) => {
         res.status(201).json({ msg: 'User registered successfully' });
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).json({ msg: err.message });
     }
 });
 
@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
         });
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).json({ msg: err.message });
     }
 });
 
