@@ -6,10 +6,12 @@ A full-stack web application for secure research paper submissions, featuring a 
 - **Student Portal**: Register, login, upload PDF research papers.
 - **Admin Portal**: View all submissions, approve/reject, and **verify file integrity**.
 - **Blockchain Simulation**: Every uploaded file is hashed. The hash is stored as a "Block ID". Admins can re-calculate the hash of the stored file to verify it hasn't been tampered with.
+- **Digital Authenticity Certificates**: System generates a PDF certificate with a QR code for verified submissions.
+- **Cyber-Secure UI**: Modern dark-mode interface with glassmorphism and animated verification.
 
 ## Tech Stack
-- **Frontend**: HTML5, CSS3, Bootstrap 5, Vanilla JavaScript
-- **Backend**: Node.js, Express.js
+- **Frontend**: HTML5, CSS3, Bootstrap 5, Vanilla JavaScript (Dark Theme)
+- **Backend**: Node.js, Express.js (PDFKit, QRCode)
 - **Database**: MongoDB
 - **Security**: SHA256 Hashing, Bcrypt (Passwords)
 
